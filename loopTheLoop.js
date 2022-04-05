@@ -4,14 +4,51 @@
 
 function sumOfSquares(arr){
   //your code here!
+  return arr.reduce((a,b) => {
+	 return  a + b * b ;
+  }, 0)
 }
+
+console.log(sumOfSquares([1,2,2]))
 
 //Part 2: Loop the Loop: 2D Array Addition
 //Make a function that returns the greatest sum of a row, column or diagonal from a two dimensional array
 
 function loopTheLoop(arr){
   //your code here!
+  const rowSum = Math.max(
+	  ...arr.map(item => {
+		  return item.reduce((acc, curr) => acc + curr, 0)
+	  })
+  )
+  console.log('row', rowSum);
+
+  const temp = []
+
+  for (let i = 0; i<arr.length; i++){
+	  for (let j = 0; j < arr.length; j++){
+		  row.push(arr[j][i])
+	  }
+	  temp.push(row)
+  }
+  const columnSum = Math.max(
+	  ...temp.map(item => {
+		  return item.reduce((acc, curr) => acc + curr, 0)
+	  })
+  )
+
+  console.log('here', columnSum);
+
+  const ltr = arr.map ((item, index))
+
+  const diagonalSum = 0
 }
+
+const arr =[[10, 20, 30],
+            [40, 50, 60],
+            [70, -80, 90]];
+
+console.log(loopTheLoop(arr)); //180
 
 //## Part 3: Bonus - Row, Column or Diagonal?
 //Test your function on this data set and let me know if it was a row, column or diagonal that had the greatest sum!
